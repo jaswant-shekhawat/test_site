@@ -1,0 +1,12 @@
+<%= simple_form_for(@user, :html => {:class => 'vertical_form'}) do |f| %>
+  <% if @user.errors.any? %>
+      <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+
+      <% @user.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+  <% end %>
+
+    <%= f.input :name , required:true %>
+    <%= f.button :submit , :class => 'submit'%>
+<% end %>
